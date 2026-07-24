@@ -1,0 +1,47 @@
+{
+  "dataset": "WA_Fn-UseC_-HR-Employee-Attrition.csv",
+  "n_employees": 1470,
+  "overall_attrition_rate": 0.1612,
+  "note": "IBM HR Analytics is a synthetic benchmark; JobSatisfaction is cross-sectional 1-4. Calibrates hazard RELATIONSHIP + archetype MIX only; dynamics remain illustrative.",
+  "hazard_fit": {
+    "HAZ_A1_univariate": 0.7529,
+    "HAZ_A1_univariate_ci": [
+      0.3784,
+      1.1275
+    ],
+    "HAZ_A1_controlled": 0.9454,
+    "HAZ_A1_controlled_ci": [
+      0.5318,
+      1.359
+    ],
+    "HAZ_A0_univariate": -1.2413,
+    "HAZ_A0_controlled_at_means": -1.5288,
+    "interpretation": "HAZ_A1 = reduction in log-odds of leaving per unit s (s in [0,1]). Sim default was 3.2 (illustrative)."
+  },
+  "handcuff_evidence": {
+    "StockOptionLevel_coef_controlled": -0.5114,
+    "StockOptionLevel_ci": [
+      -0.7151,
+      -0.3076
+    ],
+    "reading": "negative => higher stock options reduce attrition controlling for satisfaction, i.e. an empirical off-satisfaction retention (handcuff) channel exists in the benchmark."
+  },
+  "archetype_prevalence": {
+    "A2_Burnout": 0.2204,
+    "A1_LowVelocity": 0.1612,
+    "A0_LowComp": 0.3925,
+    "A3_Ambition": 0.2259
+  },
+  "archetype_cluster_map": {
+    "A2_Burnout": 2,
+    "A1_LowVelocity": 0,
+    "A0_LowComp": 1,
+    "A3_Ambition": 3
+  },
+  "archetype_attrition": {
+    "A2_Burnout": 0.321,
+    "A1_LowVelocity": 0.0844,
+    "A0_LowComp": 0.1092,
+    "A3_Ambition": 0.1506
+  }
+}

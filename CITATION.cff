@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: >-
+  Measuring What You Cannot See: A Calibrated Study of Welfare and
+  Equity Erosion in Proxy-Optimizing Incentive Allocation
+message: "If you use this testbed or its results, please cite it."
+type: software
+authors:
+  - given-names: "[Your given name]"
+    family-names: "[Your family name]"
+    affiliation: "[School / affiliation]"
+abstract: >-
+  An open, CPU-only agent-based testbed showing that a learning incentive
+  allocator optimizing an observable retention proxy erodes unobserved
+  employee satisfaction and cross-archetype equity, robustly across
+  randomized worlds and under calibration to the IBM HR Analytics
+  benchmark; and an honest negative result on satisfaction auditing as a
+  remedy. Includes pre-registered falsification (kill-)tests. Simulation
+  and analysis code were AI-assisted and disclosed.
+keywords:
+  - proxy optimization
+  - Goodhart's law
+  - incentive allocation
+  - algorithmic fairness
+  - negative results
+license: MIT
+date-released: "2026-07-24"

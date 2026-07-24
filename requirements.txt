@@ -1,0 +1,7 @@
+# Data of record (sim.py) uses the Python STANDARD LIBRARY ONLY — no install needed.
+# The packages below are for analysis + figures ONLY (analyze.py, fig1_schematic.py).
+# Pinned to versions verified on the author's machine (Python 3.14.6, macOS/Darwin 25.5).
+numpy==2.4.4
+scipy==1.17.1
+pandas==3.0.3
+matplotlib==3.10.9

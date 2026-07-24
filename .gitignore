@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# LaTeX aux
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# OS
+.DS_Store
+
+# Do NOT redistribute the IBM HR CSV (Kaggle license). Place it locally in
+# calibrate/ or pass its path to fit_ibm.py; keep it out of the public repo.
+calibrate/WA_Fn-UseC_-HR-Employee-Attrition.csv
+calibrate/ibm_hr_attrition.csv
+*.xlsx
+
+# Keep: results/*.csv, results/figs/*, paper/*.pdf  (reproducibility artifacts)

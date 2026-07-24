@@ -1,0 +1,50 @@
+# Verification Report — citation integrity, novelty, adversarial review
+Produced by a 19-agent adversarial verification pass (citation-checkers + novelty scouts + hostile reviewers + meta-reviewer), then acted on with pre-registered kill-tests. This is the blunt version. Read it before you write a word of the paper. **Nothing here is optional polish — three of four "fatal" objections were correct, and they change the paper's headline.**
+
+## TL;DR — what the review found and what the 200-seed kill-tests decided
+> **CORRECTION (200-seed, FDR-corrected result overturns the 40-seed smoke):** the strong "sparse auditing fundamentally backfires" claim is **DEAD** — a shrinkage estimator removes the backfire. What survives is a narrower, honest, still-useful result: *the naive unshrunk audit estimator backfires at low audit volume; precision-aware estimation fixes it.* An early note in this session said the J-curve "survives"; that rested on an underpowered 40-seed smoke and the proper test refuted it. This is the kill-condition working as intended.
+
+1. **Old headline (H2 "Goodhart confirmed," dz=−3.9): real but tautological and not novel** — numerically re-derives Holmström–Milgrom (1991) + Goodhart/Strathern. The astronomical p is the tell of a definition being measured rather than an effect discovered. → **Demoted; conceded as an instantiation.** It IS robust (see below), just not a discovery.
+2. **The audit J-curve — the would-be novel result — did NOT survive its pre-registered kill-test.** Under a shrinkage (precision-weighted) estimator the p=0.05<p=0 backfire vanishes at both h (shrink: +0.0003 [±.0020] and +0.0006 [±.0024], both n.s. after BH-FDR). The raw-estimator backfire also holds in only 62% of 250 random worlds. → **Reframe: "naive level-based audit rewards backfire via estimator variance; precision-aware estimation removes it" — a methodological caution + fix, not a property of auditing.**
+3. **Mean latent satisfaction could not separate harming from trapping.** → **Founder-cohort metric added; gap persists on never-left originals (+0.014 [±.0011] at crowd=0,h=0, 98% sign-stable) and under all replacement schemes (none +0.024, survivor +0.049). Genuine per-person effect, not composition.** This is the most robust survivor.
+4. **Magnitudes (0.06 crowding, hazard 3.2) attributed to sources that don't contain them.** → **All magnitudes relabeled illustrative/non-calibrated; citations demoted to sign-and-form motivation; dz/p demoted to within-model separation.**
+
+## Citation integrity — VERIFIED (zero fabricated citations, but fixes required)
+All 8 checked sources are REAL and correctly characterized. There are no hallucinated citations. Corrections applied to the bibliography:
+- **Deci, Koestner & Ryan (1999)** — real. *Psychological Bulletin* 125(6), 627–**668** (not 627-626). Meta-analysis of 128 lab experiments; tangible-expected rewards undermine free-choice intrinsic motivation (d≈−0.28 to −0.40). **Do NOT attribute the number 0.06/quarter to this paper — that's a category error (lab effect size ≠ per-quarter decrement on a [0,1] latent).** It motivates the *direction* only. Note: verbal praise/unexpected rewards did NOT undermine — so don't imply all extrinsic incentives crowd out.
+- **Herzberg two-factor** — real but **cite the primary source Herzberg, Mausner & Snyderman (1959), *The Motivation to Work*** (not Herzberg alone), and **acknowledge it's contested** in modern I/O psychology (House & Wigdor 1967). Better: lean the mechanism on Holmström–Milgrom instead.
+- **Holmström & Milgrom (1991)** — real. *J. Law, Econ. & Org.* 7 (Special Issue), 24–52. This is the theorem your H2 instantiates — cite it as such.
+- **Frey & Jegen (2001)** — real. *J. Economic Surveys* 15(5), 589–611. Documents crowding **both out and in** — don't imply it's unconditionally negative.
+- **Ryan & Deci (2000)** — you merged TWO real papers. Split them: SDT = *American Psychologist* 55(1):68–78; intrinsic/extrinsic = *Contemporary Educational Psychology* 25(1):54–67.
+- **Goodhart / Strathern (1997)** — real. *European Review* 5(3), 305–321. The "when a measure becomes a target" phrasing is Strathern's paraphrase — attribute to Strathern, not Goodhart directly.
+- **Amodei et al. (2016)** Concrete Problems (arXiv:1606.06565) and **Krakovna et al. (2020)** specification gaming (DeepMind blog) — real; format as preprint / blog (non-peer-reviewed), don't say "prove/show." Consider adding **Skalse et al. (2022)** "Defining and Characterizing Reward Hacking" (NeurIPS) as a peer-reviewed anchor.
+- **Baker (1992/2002)** on distorted/noisy performance measures — the nearest economics neighbor to the J-curve; the lit-scan initially missed it. **You must position against it.**
+- Sutton & Barto (RL), Lattimore & Szepesvári (bandits) — standard textbooks, not separately re-verified this pass.
+
+## Novelty — the honest positioning (KPI #10)
+Closest prior work (all real, verified via search): Karwowski et al. 2024 *Goodhart's Law in RL* (ICLR); Gao et al. 2023 *Scaling Laws for Reward Model Overoptimization* (ICML); Holmström–Milgrom 1991; the AI Economist (Zheng et al. 2022); Cheng 2020 (RL for turnover); Mendoza et al. 2017 and Falk & Kosfeld 2006 and Dickinson & Villeval 2008 (non-monotone *human* monitoring backfires via distrust/crowding-out).
+
+- **Concede:** H2 (retention-reward degrades latent satisfaction) is a numerical instantiation of a known theorem. Say so explicitly.
+- **Surviving one-sentence delta (KPI #10), CORRECTED to what the kill-tests actually support:** *"When a retention-optimizing learning allocator is augmented with a sparse audit of the unobserved objective, the naive way to fold that audit into the reward backfires at low audit volume — worse than no audit — because a low-precision estimate enters action selection at full weight; a precision-aware (shrinkage) estimator removes the backfire, so audit-signal DESIGN, not audit FREQUENCY, is what governs whether measuring the hidden objective helps; the allocator also degrades cross-archetype equity, robustly across the assumption space."*
+- **What the delta is NOT:** it is not "sparse auditing fundamentally backfires." That died under the pre-registered kill-test (shrink removes it, 62% world-robustness for raw). Claiming the strong version would be dishonest and a reviewer would break it immediately. The honest contribution is the estimator-design caution + fix + the robust equity-degradation axis.
+- **Report the full J-curve for every estimator** (fig7) so the reader sees the backfire is a property of the naive estimator, not of auditing.
+
+## The four fatal objections and their pre-registered kill-tests
+| # | Objection (verified correct) | Kill-test | Pre-registered kill condition | 200-seed FDR-corrected VERDICT |
+|---|---|---|---|---|
+| 1 | J-curve is an unshrunk-λ=1 estimator artifact | `kill_audit`: raw/shrink/gated × p-grid × h | backfire vanishes under shrink/gated at both h → reframe | **CONDITION MET → REFRAME.** raw backfires (h0 −0.0085, h1 −0.0076, p_fdr<1e-7); **shrink n.s. at both h** (+0.0003, +0.0006); gated mixed. The backfire is largely a naive-estimator artifact. |
+| 2 | H2 is a tautology (crowding never varied) | `kill_h2`: crowd_mult∈{0,⅓,1,2} × h∈{0,1} | if gap ~0 at crowd=0 & h=0 → gap is the constant | **gap PERSISTS** at crowd=0,h=0 (+0.0151 [±.0010], 98% stable); decomposes into base + crowding + handcuff channels. H2 not merely the constant, but conceded non-novel. |
+| 3 | Metric can't separate harming from trapping | founder metric + replace-mode | if founder gap vanishes → pure composition | **founder gap PERSISTS** (+0.0141 [±.0011], 98% stable); robust to all replacement schemes. Genuine per-person effect — the strongest survivor. |
+| 4 | Magnitudes ungrounded; dz mis-presented; not robust | `kill_robust` (250 worlds) + relabel + stats overhaul | if sign flips across assumption region → not robust | **Goodhart-gap sign holds in 100%** of 250 random worlds; founder-gap 100%; **raw J-curve backfire only 62%** (fragile, as expected). Magnitudes relabeled; dz/p demoted. |
+
+## Corrections and framing applied to the paper
+1. **Re-headline** on the audit J-curve + equity axis. Concede H2 as an instantiation of Holmström–Milgrom; cite it.
+2. **Report the decomposition:** the h=0 gap (no handcuff — estimator/exploration + crowding) vs the h=1.5 gap (handcuff channel). They are different mechanisms; don't muddle them.
+3. **Demote dz and raw p-values** to "within-model separation / Monte-Carlo reproducibility." Report absolute mean differences with Monte-Carlo SE, per-cell CIs, per-seed sign-stability, TOST equivalence on every "tied" cell, and Holm/BH-FDR across the h×p×metric family. (Built into `analyze_kill.py`.)
+4. **Relabel all magnitudes illustrative/non-calibrated**; delete every "anchored to Deci 1999." Cite for sign/form only.
+5. **Bibliography** verified against the primary sources per the list above.
+6. **Response to the sharpest objection ("where's the human behavior / where did 3.2 come from"):** the model is an explicitly conditional, hypothesis-generating tool with unitless illustrative parameters; the robustness sweep shows the *sign* is invariant across a wide region; a public turnover+engagement panel (e.g. IBM HR Analytics, from which the archetypes derive) is what a follow-up would calibrate against.
+7. **Framing:** computational social science / decision-making under partial observability.
+
+## Meta-reviewer's bottom line (verbatim spirit)
+As it originally stood, the study did **not** survive scrutiny: tautological headline, unestablished novel result, confounded metric, ungrounded magnitudes. After the kill-tests (all CPU/stdlib, done), IF the J-curve survives the 200-seed precision-aware run, the founder decomposition holds, dz/p are demoted, and citations/magnitudes are relabeled, **it becomes a defensible hypothesis-generating contribution centered honestly on the audit-backfire and equity delta.** That is the paper you write.
