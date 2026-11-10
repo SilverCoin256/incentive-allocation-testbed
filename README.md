@@ -1,10 +1,10 @@
 # Incentive Allocation under Partial Observability
 
-A CPU-only, standard-library agent-based testbed studying what a retention-optimizing
-learning allocator does to the employee **satisfaction and equity it cannot observe**,
-and whether auditing the hidden objective repairs the damage.
+This simulation tests what happens when an allocator learns from employee retention and has no direct measure of satisfaction. It runs on a CPU with the Python standard library.
 
-**Headline findings** (200 seeds; see `paper/` and `RESULTS_DIGEST.md`):
+## Simulation results
+
+The main experiment used 200 seeds. See the [results digest](RESULTS_DIGEST.md) for the comparisons.
 - A learner rewarded only on observed **retention** matches a theory-based static
   allocator on retention while degrading unobserved **latent satisfaction** and, more
   sharply, **cross-archetype equity** (~4× the inequality of the static baseline).
@@ -13,13 +13,8 @@ and whether auditing the hidden objective repairs the damage.
   **calibration of the attrition-hazard slope and archetype mix to the IBM HR Analytics
   benchmark** — in which an off-satisfaction "handcuff" retention channel is itself
   empirically present (stock-option coefficient −0.51 controlling for satisfaction).
-- We frame this as a *distributional* sharpening of multitask principal–agent theory,
-  not a new mechanism.
-- **Honest negative result:** the natural remedy — auditing satisfaction and folding it
-  into the reward — only appears to backfire under a naive estimator *and* strong
-  coupling; a precision-aware estimator, or the weaker coupling the benchmark exhibits,
-  removes the backfire. We report the falsification of our own exciting hypothesis in
-  full (see `VERIFICATION_REPORT.md`).
+- The equity result describes the distribution of outcomes in a model of multitask principal–agent theory.
+- Adding audited satisfaction to the reward appeared to make outcomes worse only with a naive estimator and strong coupling. A precision-aware estimator or weaker coupling removed the effect. The [verification report](VERIFICATION_REPORT.md) gives the conditions and results.
 
 > **AI-use disclosure.** The simulation code, analysis/calibration code, and figures were
 > AI-assisted. The research questions, experimental design, execution, interpretation,
